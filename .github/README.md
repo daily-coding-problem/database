@@ -4,7 +4,7 @@ This is the PostgreSQL database.
 
 ## Docker
 
-Build the docker image using [`make`](Makefile):
+Build the docker image using [`make`](/Makefile):
 
 ```bash
 make all
