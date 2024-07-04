@@ -5,7 +5,7 @@ networks:
 
 services:
   postgres:
-    image: nicholasadamou/postgres:latest
+    image: postgres:latest
     container_name: postgres
     environment:
       - POSTGRES_DB=postgres
