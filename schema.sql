@@ -12,7 +12,8 @@ CREATE TABLE problems (
     difficulty VARCHAR(50),
     topics TEXT[],  -- Array of strings
     companies TEXT[],  -- Array of strings
-    hints TEXT[]  -- Array of strings
+    hints TEXT[],  -- Array of strings
+    link TEXT[]  -- Array of strings
 );
 
 -- Create the study_plans table
