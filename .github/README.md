@@ -23,7 +23,7 @@ docker network create dcp
 Start the docker container:
 
 ```bash
-docker compose up -d && docker logs -f postgres
+docker compose down -v && docker compose up
 ```
 
 ## License

@@ -8,12 +8,13 @@ CREATE TABLE problems (
     id SERIAL PRIMARY KEY,
     question_id INTEGER UNIQUE,
     title VARCHAR(255),
+    slug VARCHAR(255),
     content TEXT,
     difficulty VARCHAR(50),
-    topics TEXT[],  -- Array of strings
-    companies TEXT[],  -- Array of strings
-    hints TEXT[],  -- Array of strings
-    link TEXT[]  -- Array of strings
+    topics TEXT[],
+    companies TEXT[],
+    hints TEXT[],
+    link TEXT[]
 );
 
 -- Create the study_plans table
