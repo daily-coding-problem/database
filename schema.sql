@@ -14,7 +14,7 @@ CREATE TABLE problems (
     topics TEXT[],
     companies TEXT[],
     hints TEXT[],
-    link TEXT[]
+    link TEXT
 );
 
 -- Create the study_plans table
