@@ -5,6 +5,7 @@ CREATE SCHEMA IF NOT EXISTS leetcode;
 DROP TABLE IF EXISTS leetcode.study_plan_problems;
 DROP TABLE IF EXISTS leetcode.problems;
 DROP TABLE IF EXISTS leetcode.study_plans;
+DROP TABLE IF EXISTS users;
 
 -- Create the problems table
 CREATE TABLE leetcode.problems (
