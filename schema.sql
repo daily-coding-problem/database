@@ -41,6 +41,7 @@ CREATE TABLE leetcode.study_plan_problems (
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE,
+    is_premium BOOLEAN DEFAULT FALSE,
     timezone VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
