@@ -1,10 +1,13 @@
+-- Create schema if it doesn't exist
+CREATE SCHEMA IF NOT EXISTS leetcode;
+
 -- Drop tables if they exist
-DROP TABLE IF EXISTS study_plan_problems;
-DROP TABLE IF EXISTS problems;
-DROP TABLE IF EXISTS study_plans;
+DROP TABLE IF EXISTS leetcode.study_plan_problems;
+DROP TABLE IF EXISTS leetcode.problems;
+DROP TABLE IF EXISTS leetcode.study_plans;
 
 -- Create the problems table
-CREATE TABLE problems (
+CREATE TABLE leetcode.problems (
     id SERIAL PRIMARY KEY,
     question_id INTEGER UNIQUE,
     title VARCHAR(255),
@@ -18,7 +21,7 @@ CREATE TABLE problems (
 );
 
 -- Create the study_plans table
-CREATE TABLE study_plans (
+CREATE TABLE leetcode.study_plans (
     id SERIAL PRIMARY KEY,
     slug VARCHAR(255) UNIQUE,
     name VARCHAR(255),
@@ -26,9 +29,17 @@ CREATE TABLE study_plans (
 );
 
 -- Create the study_plan_problems table
-CREATE TABLE study_plan_problems (
-    study_plan_id INTEGER REFERENCES study_plans(id),
-    problem_id INTEGER REFERENCES problems(id),
+CREATE TABLE leetcode.study_plan_problems (
+    study_plan_id INTEGER REFERENCES leetcode.study_plans(id),
+    problem_id INTEGER REFERENCES leetcode.problems(id),
     category_name VARCHAR(255),
     PRIMARY KEY (study_plan_id, problem_id)
+);
+
+-- Create the users table
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE,
+    timezone VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
