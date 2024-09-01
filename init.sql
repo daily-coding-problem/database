@@ -18,6 +18,7 @@ CREATE TABLE leetcode.problems
     title       VARCHAR(255),
     slug        VARCHAR(255),
     content     TEXT,
+    solution    TEXT,
     difficulty  VARCHAR(50),
     topics      TEXT[],
     companies   TEXT[],
