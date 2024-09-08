@@ -53,6 +53,9 @@ CREATE TABLE users
     is_premium BOOLEAN   DEFAULT FALSE,
     timezone   VARCHAR(255),
     is_subscribed BOOLEAN DEFAULT FALSE,
+    unsubscribed_at TIMESTAMP,
+    is_anonymized BOOLEAN DEFAULT FALSE,
+    anonymized_at TIMESTAMP,
     unsubscribe_token VARCHAR(255),
     unsubscribe_token_expires_at TIMESTAMP,
     is_processing BOOLEAN DEFAULT FALSE, -- For processing user data in a distributed system
@@ -121,6 +124,9 @@ VALUES ('Send Daily Coding Problems', 'Send daily coding problem to all subscrib
 
 INSERT INTO cron_jobs (name, description, schedule, last_run_at, next_run_at)
 VALUES ('Handle Expired Tokens', 'Handle expired unsubscribe tokens', '0 0 0 * * ?', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO cron_jobs (name, description, schedule, last_run_at, next_run_at)
+VALUES ('Anonymize User Data Clean Up', 'Clean up anonymized user data after a given retention period', '0 0 0 * * ?', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 -- Indexes for faster lookups on frequently queried columns
 CREATE INDEX idx_problems_question_id ON leetcode.problems (question_id);
